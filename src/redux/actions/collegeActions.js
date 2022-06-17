@@ -17,6 +17,7 @@ export const getAllColleges = () => async dispatch => {
     console.log('its in action')
     const { data } = await axios.get(`/api/colleges`);
     console.log('data', data.colleges);
+    console.log('data1', data);
 
     dispatch({
       type: ALL_COLLEGE_SUCCESS,
@@ -37,7 +38,7 @@ export const getAllCollegesBranch = (id) => async dispatch => {
     });
 
     const { data } = await axios.get(`/api/college/${id}/branches`);
-    console.log('branches', data.branches);
+    console.log('branches', data);
     
     dispatch({
       type: COLLEGE_BRANCH_SUCCESS,

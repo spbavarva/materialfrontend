@@ -14,7 +14,8 @@ function Header() {
   // const alert = useAlert();
   // console.log("hello");
   const { colleges, error } = useSelector(state => state.collegesList);
-  const { branches } = useSelector(state => state.collegesList);
+  const { branches } = useSelector(state => state.branchList);
+  console.log("HomePage", branches);
   // const {_id} = colleges;
   //console.log(_id);
 
@@ -36,17 +37,17 @@ function Header() {
   }
 
 
-  console.log("hello");
+
   return (
     <>
       <div className="header d-flex justify-content-center ">
         <Row gutter={16} justify="center">
           <Col lg={20} sm={24} xs={24}>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-center fs-2">
               <div>
-                <Heading as="h2" size="3xl" isTruncated>
+                <h2 className='heading'>
                   <Link to="/"> Materials</Link>
-                </Heading>
+                </h2>
               </div>
             </div>
           </Col>
@@ -59,31 +60,22 @@ function Header() {
             <Col lg={5} sm={24} xs={24} key={college._id} className="pt-2" >
               <div className="college">
                 <Button colorScheme="teal" className="college-btn " size="lg" onMouseEnter={() => mouseOver(college._id)} onMouseLeave={mouseOut}>
-                  {/* <Button colorScheme="teal" className="college-btn " size="lg" onMouseOver={mouseOver(college._id)} onMouseOut={mouseOut}> */}
+                  {/* <Button colorScheme="teal" className="college-btn " size="lg" onClick={() =>mouseOver(college._id)} > */}
+
                   {college.name}
                 </Button>
-                <div className="college-content bs1 align-items-right ">
-                  <h2>Branches 1 </h2>
-                  {/* <Heading
-                    as="h3"
-                    size="lg"
-                    className=" d-flex align-items-right Branch_heading"
-                  >
-                    hello
-                  </Heading> */}
-
-                  {/* {branches?.map((branch) => { */}
+                <div className="college-content  bs1   d-flex justify-content-center align-items-center  text-center">
+                  <h2> Branches </h2>
                   {branches?.branches?.map((branch) => {
                     return (
                       <>
-                        <h2>Branches</h2>
                         <div className="m-2">
-                          <Heading as="h5" size="sm" className="branch">
-                            <Link to={`/${college.name}/${branch}`}>
+                          <Heading as="h3" size="sm" className="branch d-flex justify-content-center align-items-center  text-center" >
+                            <Link to={`/${college.name}/${branch.name}`}>
                               {branch.name}
                             </Link>
-                            
-                          </Heading>+
+
+                          </Heading>
                         </div>
                       </>
                     );

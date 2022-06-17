@@ -40,12 +40,15 @@ hr {
 
 }
 
-.btn {
+.btn{
     margin-right: 2vh;
     border: 1px solid black;
     background-color: #0460b0;
     color: white;
     border-radius: 5pt;
+}
+.btn>a{
+    color: white;
 }
 
 h2 {
